@@ -1,0 +1,56 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# === Virtual environments ===
+venv/
+env/
+.venv/
+.env/
+
+# === IDE / Editor settings ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === Logs & debug ===
+*.log
+logs/
+debug.log
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Environment & config ===
+.env
+*.env
+config.py
+config_local.py
+secrets.json
+
+# === Cache ===
+.cache/
+.pytest_cache/
+.mypy_cache/
+__pypackages__/
+
+# === Docker ===
+*.pid
+*.seed
+*.pid.lock
+
+# === Misc ===
+*.bak
+*.tmp
+*.swp
