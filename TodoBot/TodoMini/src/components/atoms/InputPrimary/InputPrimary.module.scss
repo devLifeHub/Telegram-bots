@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.label {
+    @include font-label($color: #000);
+    position: absolute;
+    left: 20px;
+    transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.input {
+  @include font-input();
+  @include bg($url: "@/assets/backgrounds/bg_input-1.png");
+  position: relative;
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  z-index: 20;
+  transition: color .3s ease-in-out;
+
+  &:focus::placeholder {
+      color: transparent;
+  }
+
+  &::placeholder {
+      @include font-placeholder($color: #ca9ffc);
+      transition: color .3s ease-in-out, transform .2s ease-in-out;
+  }
+
+  &:not(:focus):hover::placeholder {
+      color: #fff;
+      transform: scaleY(1.1) translateX(2px);
+  }
+}
+
+.container:focus-within .label,
+.container:has(.input:not(:placeholder-shown)) .label   {
+  transform: translateY(-20px);
+}

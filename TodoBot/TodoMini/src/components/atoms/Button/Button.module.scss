@@ -1,0 +1,50 @@
+.btn {
+    @include font-btn($color: #ca9ffc);
+    @include bg($url: "@/assets/backgrounds/bg_btn-1.png");
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    z-index: 10;
+    transition: all 0.3s linear;
+
+
+  &::after {
+    content: "";
+    @include bg($url: "@/assets/backgrounds/bg_btn-2.png");
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    z-index: 20;
+    transition: all 0.4s linear;
+  }
+
+  &::before {
+    content: attr(data-name);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 0;
+    z-index: 30;
+    transition: all 0.3s linear;
+  }
+
+  &:hover {
+    color: transparent;
+
+    &::after {
+      opacity: 1;
+    }
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:disabled {
+      @include disabled;
+  }
+}

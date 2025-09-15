@@ -1,0 +1,34 @@
+.note {
+    position: relative;
+    width: 100%;
+}
+
+.content {
+    @include flex($fd: column, $jc: center, $ai: flex-start);
+    padding: 20px 30px;
+    height: 100%;
+}
+
+.title, .descr {
+    @include flex($ai: flex-start);
+}
+
+.title {
+    margin: 0 0 10px 0;
+}
+
+.titleSpan, .descrSpan {
+    @include font-todo-span($color: #d2acff);
+}
+
+.titleSpan {
+    margin: 0 64px 0 0;
+}
+
+.descrSpan {
+    margin: 0 10px 0 0;
+}
+
+.titleSpan, .descrText {
+    text-align: left;
+}

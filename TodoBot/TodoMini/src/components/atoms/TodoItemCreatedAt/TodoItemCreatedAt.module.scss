@@ -1,0 +1,16 @@
+.createdAt {
+    @include flex;
+    position: relative;
+}
+
+.frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    @include flex($fd: column);
+    padding: 36px;
+}

@@ -1,0 +1,8 @@
+.btn {
+    @include flex($jc: normal, $ai: normal);
+    width: 100%;
+}
+
+.isActive {
+    color: #d2acff;
+}
