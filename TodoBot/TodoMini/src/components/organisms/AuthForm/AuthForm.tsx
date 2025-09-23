@@ -20,7 +20,11 @@ const AuthForm = () => {
                 username: isEmail,
                 password: isPassword,
             }).unwrap();
-            localStorage.setItem("accessToken", result.access_token);
+                Telegram.WebApp.sendData(JSON.stringify({
+                type: "auth_success",
+                token: result.access_token
+            }));
+
             navigate("/todo");
         } catch (err) {
             console.error("Login failed", err);
