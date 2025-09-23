@@ -13,9 +13,9 @@ build/
 
 # === Virtual environments ===
 venv/
-env/
+
 .venv/
-.env/
+
 
 # === IDE / Editor settings ===
 .vscode/
