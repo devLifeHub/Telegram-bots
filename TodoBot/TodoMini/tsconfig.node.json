@@ -25,6 +25,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  // какие файлы/папки попадут под проверку TS
+
   "include": ["vite.config.ts", "src"]
 }

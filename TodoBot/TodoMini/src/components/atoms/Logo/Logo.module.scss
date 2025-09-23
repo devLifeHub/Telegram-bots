@@ -2,8 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
     height: 60px;
+    @include respond-to(ms) {
+        height: 50px;
+    }
+    @include respond-to(xs) {
+        height: 40px;
+    }
 }
 
 .icon {

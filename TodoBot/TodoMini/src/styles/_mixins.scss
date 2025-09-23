@@ -1,41 +1,67 @@
+@mixin position($pos:absolute, $t: auto, $r: auto, $b: auto, $l: auto, $z: 0) {
+    position: $pos;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+    z-index: $z;
+}
+
 @mixin font-btn($color: #fff) {
     font-family: "BigShouldersStencil", sans-serif;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: 600;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     color: $color;
     cursor: pointer;
 }
 
 @mixin font-label($color: #fff)  {
     font-family: "BigShouldersStencil", sans-serif;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: 900;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     color: $color;
 }
 
 @mixin font-input($color: #fff)  {
     font-family: "BigShoulders", sans-serif;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: 400;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     color: $color;
 }
 
 @mixin font-placeholder($color: #fff)  {
     font-family: "BigShouldersStencil", sans-serif;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: 600;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     color: $color;
 }
 
-@mixin font-todo-span($color: #fff) {
+// item
+@mixin font-todo-span($color: #d2acff) {
     font-family: "BigShouldersStencil", sans-serif;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: 500;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
+    color: $color;
+}
+
+@mixin font-todo-time($color: #d2acff) {
+    font-family: "BigShouldersStencil", sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: $color;
+}
+
+@mixin font-todo-text($color: #fff) {
+    font-family: "BigShoulders", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     color: $color;
 }
 

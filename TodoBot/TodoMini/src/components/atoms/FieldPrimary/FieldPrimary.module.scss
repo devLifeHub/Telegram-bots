@@ -1,0 +1,69 @@
+// frame 
+.interactive {
+    margin-bottom: 34px;
+    transition: $trasition-color;
+}
+
+.interactive:hover {
+    color: $color-active;
+}
+
+.interactive:focus-within {
+    color: $color-active;
+}
+
+
+.label {
+    position: absolute;
+    transition: $trasition-transform;
+
+    &-input {
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+    &-textarea {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+
+.input, .textarea {
+    @include font-input;
+    position: relative;
+    padding: 5px 10px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    color: #fff;
+    z-index: 10;
+    &:focus{
+        outline: none;
+    }
+}
+
+.input {
+    height: 50px;
+}
+
+.textarea {
+    min-height: 100px;
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+    transform: translateY(-45px);
+}
+
+.textarea:focus + .label,
+.textarea:not(:placeholder-shown) + .label {
+    transform: translateY(-30px);
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator,
+.input[type="time"]::-webkit-calendar-picker-indicator,
+.input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(62%) sepia(16%) saturate(748%) hue-rotate(222deg) brightness(102%) contrast(97%);
+  cursor: pointer;
+}

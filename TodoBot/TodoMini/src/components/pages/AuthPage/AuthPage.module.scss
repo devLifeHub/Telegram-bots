@@ -1,5 +1,6 @@
 .authMain {
     @include flex;
+    padding-top: 160px;
     width: 100%;
     height: calc(100vh - 60px);
 }

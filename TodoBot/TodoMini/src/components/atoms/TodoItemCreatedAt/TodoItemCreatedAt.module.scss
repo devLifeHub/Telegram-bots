@@ -1,6 +1,9 @@
 .createdAt {
     @include flex;
     position: relative;
+    @include respond-to(ms) {
+        display: none;
+    }
 }
 
 .frame {
@@ -13,4 +16,27 @@
 .content {
     @include flex($fd: column);
     padding: 36px;
+}
+
+
+// modification
+.modCreatedAt {
+    @include font-todo-time;
+    display: none;
+    @include respond-to(ms) {
+        display: flex;
+    }
+}
+
+.modFrame {
+    display: none;
+}
+
+.modContent {
+    @include flex;
+    padding: 0;
+}
+
+.modDate {
+    margin: 0 10px 0 0;
 }

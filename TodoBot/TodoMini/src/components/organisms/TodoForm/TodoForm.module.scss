@@ -1,0 +1,25 @@
+.datetime {
+    @include flex($jc: flex-start);
+    gap: 20px;
+    opacity: 0.1;
+    transition: opacity .3s ease-in-out;
+}
+
+.showDatetime {
+    opacity: 1;
+}
+
+// delete 
+.deleteContent {
+    @include flex($fd: column);
+}
+
+.deleteText {
+    margin: 0 0 60px 0;
+}
+
+.deleteBlockBtn {
+    @include flex($jc: space-between);
+    gap: 20px;
+    width: 80%;
+}

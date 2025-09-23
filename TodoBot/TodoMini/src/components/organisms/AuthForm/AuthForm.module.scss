@@ -1,7 +1,6 @@
 .container {
     @include bg($url: "@/assets/backgrounds/bg_form-1.png");
     padding: 50px;
-    max-width: 600px;
     width: 100%;
 }
 

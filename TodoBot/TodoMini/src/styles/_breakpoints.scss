@@ -1,0 +1,15 @@
+// Mobile First — от меньшего к большему
+$breakpoint-xs: 480px;
+$breakpoint-ms: 600px;  
+$breakpoint-sm: 768px;
+
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: #{$breakpoint-xs}) { @content; }
+  } @else if $breakpoint == ms {
+    @media (max-width: #{$breakpoint-ms}) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: #{$breakpoint-sm}) { @content; }
+  }
+}

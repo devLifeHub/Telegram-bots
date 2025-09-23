@@ -1,0 +1,5 @@
+.modal {
+    @include position($pos: fixed, $t:0, $r:0, $b:0, $l:0, $z:1000);
+    @include flex;
+    background-color: $color-opacity;
+}

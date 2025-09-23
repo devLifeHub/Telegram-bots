@@ -1,8 +1,9 @@
+.list {
+    margin: 0 0 20px 0;
+}
+
 .btn {
     @include flex($jc: normal, $ai: normal);
     width: 100%;
 }
 
-.isActive {
-    color: #d2acff;
-}

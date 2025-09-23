@@ -1,38 +1,52 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
+import { memo } from "react";
+import clsx from "clsx";
+import s from "./TodoItem.module.scss";
+import { todoApi } from "@/api/services/todo";
 import TodoItemCreatedAt from "@/components/atoms/TodoItemCreatedAt/TodoItemCreatedAt";
 import TodoItemNote from "@/components/atoms/TodoItemNote/TodoItemNote";
-import s from "./TodoItem.module.scss"
-import clsx from "clsx";
-import { memo } from "react";
+import { useSelector } from "react-redux";
+import { makeIsTodoActiveSelector } from "@/store/slice/activeItem/activeItemSelector";
 
-interface Todo {
-    id: number;
-    user_id: number;
-    title: string;
-    description: string;
-    created_at: string;
-    end_date: string;
-    is_completed: boolean;
-    is_fail: boolean;
-}
-
-interface  TodoItemProps {
-    todo: Todo;
-    isActive: boolean;
-    onChoose: (id: number) => void;
+interface TodoItemProps {
+  id: number;
+  onChoose: (id: number) => void;
 }
 
 
-const TodoItem:FC<TodoItemProps> = ({todo, isActive, onChoose}) => {
-    return (
-        <li>
-            <button className={clsx(s.btn, isActive && s.isActive)} onClick={() => onChoose(todo.id)}>
-                <TodoItemCreatedAt createdAt={todo.created_at} />
-                <TodoItemNote title={todo.title} descr={todo.description} />
-            </button>
-        </li>
+const TodoItem: FC<TodoItemProps> = ({ id, onChoose }) => {
 
-    )
-}
+  const { todo } = todoApi.useFetchTodosQuery(undefined, {
+    selectFromResult: ({ data }) => ({
+      todo: data?.find(t => t.id === id),
+    }),
+  });
 
-export default memo(TodoItem)
+  const isActiveSelector = useMemo(() => makeIsTodoActiveSelector(id), [id]);
+  const isActive = useSelector(isActiveSelector);
+
+  const actionClass = useMemo(
+    () => clsx({ isCompleted: todo?.is_completed, isFail: todo?.is_fail }),
+    [todo?.is_completed, todo?.is_fail]
+  );
+
+  if (!todo) return null;
+
+  return (
+    <li className={clsx(s.list, actionClass, isActive && "isActive")}>
+      <button className={s.btn} onClick={() => onChoose(id)}>
+        <TodoItemCreatedAt createdAt={todo.created_at} />
+        <TodoItemNote
+          actionClass={actionClass}
+          isActive={isActive}
+          title={todo.title}
+          descr={todo.description}
+          createdAt={todo.created_at}
+          endDate={todo.end_date ?? null}
+        />
+      </button>
+    </li>
+  );
+};
+
+export default memo(TodoItem);

@@ -1,22 +1,35 @@
+.container {
+    @include position($pos:fixed, $r:0, $l:0, $b:0);
+    background-color: $color-opacity;
+}
+
 .list {
     @include flex ($jc: space-around);
     @include bg($url:"@/assets/backgrounds/bg_control.png");
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 5px;
     margin: 0 auto;
+    margin-bottom: 5px;
     padding: 10px 120px;
     width: 600px;
+    @include respond-to(ms) {
+        padding: 5px 80px;
+        width: 100%;
+    }
 }
 
 .item {
     width: 40px;
     height: 40px;
+    @include respond-to(xs) {
+        min-width: 28px;
+        min-height: 28px;
+    }
 }
 
 .item:not(:last-child) {
     margin-right: 20px;
+    @include respond-to(xs) {
+        margin-right: 16px;
+    }
 }
 
 .btn {
@@ -26,10 +39,20 @@
     &:disabled {
         @include disabled;
     }
+    &:hover .icon {
+        color: $color-active;
+    }
+    &:focus .icon {
+        color: $color-active;
+    }
+    &:active .icon {
+        color: $color-active;
+    }
 }
 
 .icon {
     width: inherit;
     height: inherit;
     color: #000;
+    transition: $trasition-color;
 }

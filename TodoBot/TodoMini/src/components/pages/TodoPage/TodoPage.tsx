@@ -1,15 +1,24 @@
 import TodoControl from "@/components/molecules/TodoControl/TodoControl"
+import TodoModal from "@/components/molecules/TodoModal/TodoModal"
 import TodoList from "@/components/organisms/TodoList/TodoList"
-import MainTamplate from "@/components/templates/MainTamplate/MainTamplate"
+import MainTemplate from "@/components/templates/MainTemplate/MainTemplate"
+import { isCreateFormSelector, isDeleteFormSelector, isUpdateFormSelector } from "@/store/slice/showForm/showFormSelector"
 import { FC } from "react"
+import { useSelector } from "react-redux"
 
 
 const TodoPage: FC = () => {
+    const isCreateForm = useSelector(isCreateFormSelector)
+    const isUpdateForm = useSelector(isUpdateFormSelector)
+    const isDeleteForm = useSelector(isDeleteFormSelector)
     return (
-        <MainTamplate>
+        <MainTemplate>
+            {isCreateForm && <TodoModal mode="create" />}
+            {isUpdateForm && <TodoModal mode="update" />}
+            {isDeleteForm && <TodoModal mode="delete" />}
             <TodoList />
             <TodoControl />
-        </MainTamplate>
+        </MainTemplate>
     )
 }
 

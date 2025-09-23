@@ -1,0 +1,17 @@
+.header {
+    @include position($pos: fixed, $t:0, $r:0, $l:0, $z:10);
+    background-color: $color-opacity;
+}
+
+.content {
+    @include flex($jc: space-between);
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    @include respond-to(ms) {
+        width: 32px;
+        height: 32px;
+    }
+}

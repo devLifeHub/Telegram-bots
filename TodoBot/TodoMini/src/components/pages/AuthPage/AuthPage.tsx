@@ -1,13 +1,13 @@
 import { FC } from "react"
 import AuthForm from "@/components/organisms/AuthForm/AuthForm"
-import MainTamplate from "@/components/templates/MainTamplate/MainTamplate"
+import MainTemplate from "@/components/templates/MainTemplate/MainTemplate"
 import s from "./AuthPage.module.scss"
 
 const AuthPage: FC = () => {
     return (
-        <MainTamplate className={s.authMain}>
+        <MainTemplate className={s.authMain}>
             <AuthForm />
-        </MainTamplate>
+        </MainTemplate>
     )
 }
 

@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { FC } from "react";
-import s from "./InputPrimary.module.scss"
+import s from "./FieldSecondary.module.scss"
 
 
-interface InputPrimaryProps {
+interface FieldSecondaryProps {
     inputClass?: string,
     type: "email" | "text" | "password";
     isValue: string;
@@ -11,7 +11,7 @@ interface InputPrimaryProps {
     placeholder?: string
 }
 
-const InputPrimary: FC<InputPrimaryProps> = ({ inputClass, type, isValue, setValue, placeholder }) => {
+const FieldSecondary: FC<FieldSecondaryProps> = ({ inputClass, type, isValue, setValue, placeholder }) => {
 
   return (
     <div className={s.container}>
@@ -28,5 +28,5 @@ const InputPrimary: FC<InputPrimaryProps> = ({ inputClass, type, isValue, setVal
   );
 };
 
-export default InputPrimary;
+export default FieldSecondary;
 

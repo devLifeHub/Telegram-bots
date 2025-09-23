@@ -1,10 +1,11 @@
 import { useState } from "react"
-import s from "./AuthForm.module.scss"
-import Button from "@/components/atoms/Button/Button";
-import InputPrimary from "@/components/atoms/InputPrimary/InputPrimary";
-import TitlePrimary from "@/components/atoms/TitlePrimary  /TitlePrimary";
-import { useLoginMutation } from "@/api/services/auth";
 import { useNavigate } from "react-router-dom";
+import { useLoginMutation } from "@/api/services/auth";
+import Button from "@/components/atoms/Button/Button";
+import FormTemplate from "@/components/templates/FormTamplate/FormTemplate";
+import FieldSecondary from "@/components/atoms/FieldSecondary/FieldSecondary";
+import s from "./AuthForm.module.scss"
+
 
 const AuthForm = () => {
     const navigate = useNavigate()
@@ -28,14 +29,13 @@ const AuthForm = () => {
 
 
     return (
-        <div className={s.container}>
-            <TitlePrimary variant={"login"} />
-            <form className={s.form} onSubmit={handleSubmit}>
-                <InputPrimary type={"email"} isValue={isEmail} setValue={setIsEmail} placeholder="Email" />
-                <InputPrimary type={"password"} isValue={isPassword} setValue={setIsPassword} placeholder="Password" />
-                <Button name="Send" type="submit" extraClass={s.btn} disabled={!isEmail || !isPassword}/>
-            </form>
-        </div>
+            <FormTemplate variant="login" >
+                <form className={s.form} onSubmit={handleSubmit}>
+                    <FieldSecondary type={"email"} isValue={isEmail} setValue={setIsEmail} placeholder="Email" />
+                    <FieldSecondary type={"password"} isValue={isPassword} setValue={setIsPassword} placeholder="Password" />
+                    <Button name="Send" type="submit" extraClass={s.btn} disabled={!isEmail || !isPassword}/>
+                </form>
+            </FormTemplate>
     )
 }
 

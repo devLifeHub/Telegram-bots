@@ -9,6 +9,20 @@
     height: 100%;
 }
 
+.time {
+    @include flex($jc: space-between);
+    margin: 0 0 15px 0;
+    width: 100%;
+}
+
+.countdown {
+    @include flex($jc: flex-end);
+    width: 100%;
+    @include respond-to(ms) {
+        width: auto;
+    }
+}
+
 .title, .descr {
     @include flex($ai: flex-start);
 }
@@ -18,17 +32,28 @@
 }
 
 .titleSpan, .descrSpan {
-    @include font-todo-span($color: #d2acff);
+    @include font-todo-span;
 }
 
 .titleSpan {
-    margin: 0 64px 0 0;
+    margin: 0 62px 0 0;
+    @include respond-to(sm) {
+        margin: 0 54px 0 0;
+    }
 }
 
 .descrSpan {
     margin: 0 10px 0 0;
 }
 
-.titleSpan, .descrText {
+.titleText, .descrText {
     text-align: left;
+}
+
+.titleText, .descrText {
+    @include font-todo-text($color: inherit);
+}
+
+.descrText {
+    @include font-todo-text($color: $color-blackout);
 }

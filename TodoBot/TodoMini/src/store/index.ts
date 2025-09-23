@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { authApi } from "@/api/services/auth";
 import { todoApi } from "@/api/services/todo";
 
-import activeItemReduser from "./slice/activeItemSlice"
+import activeItemReduser from "./slice/activeItem/activeItemSlice"
+import showFormReduser from "./slice/showForm/showFormSlice"
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     [todoApi.reducerPath]: todoApi.reducer,
 
     activeItem: activeItemReduser,
+    showForm: showFormReduser,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

@@ -1,5 +1,5 @@
 .btn {
-    @include font-btn($color: #ca9ffc);
+    @include font-btn($color: $color-base);
     @include bg($url: "@/assets/backgrounds/bg_btn-1.png");
     position: relative;
     padding: 10px 20px;

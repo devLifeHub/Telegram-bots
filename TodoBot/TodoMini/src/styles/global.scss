@@ -5,10 +5,38 @@ body {
   letter-spacing: .5px;
   color: #fff;
   background: #000;
+  @include respond-to(sm) {
+    font-size: 14px;
+  }
 }
+
 
 .container {
     margin: 0 auto;
     padding: 0 100px;
     max-width: 1024px;
+
+    @include respond-to(sm) {
+      padding: 0 20px;
+    }
+    @include respond-to(xs) {
+      padding: 0 10px;
+    }
+}
+
+svg {
+  width: inherit;
+  height: inherit;
+}
+
+.isCompleted {
+  color: $color-completed;
+}
+
+.isFail {
+  color: $color-fail;
+}
+
+.isActive {
+  color: $color-active;
 }

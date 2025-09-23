@@ -1,0 +1,8 @@
+.list {
+    margin: 0 0 100px 0;
+    padding: 100px 0 0 0;
+    @include respond-to(ms) {
+        margin: 0 0 60px 0;
+        padding: 60px 0 0 0;
+    }
+}

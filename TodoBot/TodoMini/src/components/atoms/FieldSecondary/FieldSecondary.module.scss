@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  margin: 20px 0;
+  margin: 1.1em 0;
   width: 100%;
 }
 
@@ -28,8 +28,8 @@
   }
 
   &::placeholder {
-      @include font-placeholder($color: #ca9ffc);
-      transition: color .3s ease-in-out, transform .2s ease-in-out;
+      @include font-placeholder($color: $color-base);
+      transition: $trasition-color, $trasition-transform;
   }
 
   &:not(:focus):hover::placeholder {
