@@ -3,7 +3,7 @@ import loginTitle from "@/assets/titles/login-title.png";
 import createTitle from "@/assets/titles/todo-create-title.png";
 import updateTitle from "@/assets/titles/todo-update-title.png";
 import deleteTitle from "@/assets/titles/todo-delete-title.png";
-import { FormTitleVariant } from "@/types";
+import type { FormTitleVariant } from "@/types";
 
 import s from "./FormTitle.module.scss"
 

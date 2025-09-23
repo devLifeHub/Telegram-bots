@@ -1,4 +1,4 @@
-import { RootState } from "@/store";
+import type { RootState } from "@/store";
 import { todoApi } from "@/api/services/todo";
 
 export const currentTodoIdSelector = (s: RootState) => s.activeItem.currentTodoId;

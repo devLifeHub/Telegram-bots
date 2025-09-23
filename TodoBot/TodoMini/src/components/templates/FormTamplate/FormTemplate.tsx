@@ -1,9 +1,9 @@
 import { FC, ReactNode } from "react"
+import clsx from "clsx"
+import FormTitle from "@/components/atoms/FormTitle/FormTitle"
 import s from "./FormTemplate.module.scss"
 
-import FormTitle from "@/components/atoms/FormTitle/FormTitle"
-import { FormTitleVariant } from "@/types"
-import clsx from "clsx"
+import type { FormTitleVariant } from "@/types"
 
 interface FormTemplateProps {
     children: ReactNode,

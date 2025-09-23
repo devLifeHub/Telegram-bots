@@ -1,5 +1,5 @@
 import { todoApi } from "@/api/services/todo";
-import { TodoType } from "@/types";
+import type { TodoType } from "@/types";
 import type { AppDispatch } from "@/store";
 
 export async function optimisticUpdateTodo(

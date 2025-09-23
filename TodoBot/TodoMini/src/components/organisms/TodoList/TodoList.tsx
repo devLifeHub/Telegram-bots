@@ -1,10 +1,10 @@
-import { useFetchTodosQuery } from "@/api/services/todo";
-import TodoItem from "@/components/molecules/TodoItem/TodoItem";
-import { toggleCurrentTodoId } from "@/store/slice/activeItem/activeItemSlice";
-import { useDispatch } from "react-redux";
-import s from "./TodoList.module.scss";
 import { useCallback, useMemo } from "react";
+import { useDispatch } from "react-redux";
+import { useFetchTodosQuery } from "@/api/services/todo";
+import { toggleCurrentTodoId } from "@/store/slice/activeItem/activeItemSlice";
+import TodoItem from "@/components/molecules/TodoItem/TodoItem";
 import Loading from "@/components/atoms/Loading/Loading";
+import s from "./TodoList.module.scss";
 
 const TodoList = () => {
   const dispatch = useDispatch();

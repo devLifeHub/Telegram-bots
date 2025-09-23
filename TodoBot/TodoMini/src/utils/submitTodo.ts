@@ -1,4 +1,4 @@
-import { TodoType, CreateTodoType, PatchTodoType } from "@/types";
+import type { TodoType, CreateTodoType, PatchTodoType } from "@/types";
 
 type MutateFn<TArg> = (arg: TArg) => { unwrap: () => Promise<TodoType> };
 

@@ -1,11 +1,11 @@
 import { FC, ReactNode } from "react"
+import clsx from "clsx"
 import FrameTL from "@/assets/icons/frames/todo-top-left-frame.svg?react"
 import FrameTR from "@/assets/icons/frames/todo-top-right-frame.svg?react"
 import FrameBL from "@/assets/icons/frames/todo-bottom-left-frame.svg?react"
 import FrameBR from "@/assets/icons/frames/todo-bottom-right-frame.svg?react"
 
 import s from "./FieldFrameTamplate.module.scss"
-import clsx from "clsx"
 
 interface FieldFrameTamplateProps {
     children: ReactNode;

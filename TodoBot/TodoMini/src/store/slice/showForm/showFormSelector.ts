@@ -1,4 +1,4 @@
-import { RootState } from "@/store";
+import type { RootState } from "@/store";
 
 export const isCreateFormSelector = (s: RootState) => s.showForm.form.create;
 export const isUpdateFormSelector = (s: RootState) => s.showForm.form.update;
