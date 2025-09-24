@@ -10,7 +10,7 @@ export const todoApi = createApi({
   endpoints: (builder) => ({
     createTodo: builder.mutation<TodoType, CreateTodoType>({
       query: (newTodo) => ({
-        url: "/todos",
+        url: "/todos/",
         method: "POST",
         body: newTodo,
       }),
@@ -41,7 +41,7 @@ export const todoApi = createApi({
 
     fetchTodos: builder.query<TodoType[], void>({
       query: () => ({
-        url: "/todos",
+        url: "/todos/",
         method: "GET",
       }),
       providesTags: ["Todos"],
