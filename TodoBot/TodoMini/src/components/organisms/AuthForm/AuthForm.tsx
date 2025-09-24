@@ -24,20 +24,15 @@ const AuthForm = () => {
             password: isPassword,
             }).unwrap();
 
-            // ✅ сохраняем токен в Redux store
             dispatch(setToken(result.access_token));
 
-            // ✅ если открыто внутри Telegram WebApp → отправляем токен боту
-            if (window.Telegram?.WebApp) {
-                window.Telegram.WebApp.sendData(
-                    JSON.stringify({
-                    type: "auth_success",
-                    token: result.access_token,
-                    })
-                );
-                }
+            try {
+                window.Telegram?.WebApp?.sendData(JSON.stringify({ token: result.access_token }));
+                console.log("вызван! токен:", result.access_token );
+            } catch (err) {
+                console.error("ошибка при sendData:", err);
+            }
 
-            // ✅ переходим на страницу задач
             navigate("/todo");
         } catch (err) {
             console.error("Login failed", err);
