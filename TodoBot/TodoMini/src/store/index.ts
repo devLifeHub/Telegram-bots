@@ -4,6 +4,7 @@ import { todoApi } from "@/api/services/todo";
 
 import activeItemReduser from "./slice/activeItem/activeItemSlice"
 import showFormReduser from "./slice/showForm/showFormSlice"
+import authReduser from "./slice/auth/authSlice"
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
 
     activeItem: activeItemReduser,
     showForm: showFormReduser,
+    auth: authReduser,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

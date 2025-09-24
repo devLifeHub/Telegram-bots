@@ -10,10 +10,15 @@ interface LoginResponse {
   access_token: string;
 }
 
+// interface MeResponse {
+
+// }
+
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery,
   endpoints: (builder) => ({
+
     login: builder.mutation<LoginResponse, LoginCredentials>({
       query: (creds) => ({
         url: "/auth/login",
@@ -34,6 +39,8 @@ export const authApi = createApi({
         method: "POST",
       }),
     }),
+
+    // me: builder.query()
   }),
 });
 

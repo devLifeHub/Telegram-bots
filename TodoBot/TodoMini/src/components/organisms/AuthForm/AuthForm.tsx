@@ -5,9 +5,12 @@ import Button from "@/components/atoms/Button/Button";
 import FormTemplate from "@/components/templates/FormTamplate/FormTemplate";
 import FieldSecondary from "@/components/atoms/FieldSecondary/FieldSecondary";
 import s from "./AuthForm.module.scss"
+import { useDispatch } from "react-redux";
+import { setToken } from "@/store/slice/auth/authSlice";
 
 
 const AuthForm = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [login] = useLoginMutation();
     const [isEmail, setIsEmail] = useState<string>("");
@@ -17,19 +20,29 @@ const AuthForm = () => {
         e.preventDefault();
         try {
             const result = await login({
-                username: isEmail,
-                password: isPassword,
+            username: isEmail,
+            password: isPassword,
             }).unwrap();
-                Telegram.WebApp.sendData(JSON.stringify({
-                type: "auth_success",
-                token: result.access_token
-            }));
 
+            // ✅ сохраняем токен в Redux store
+            dispatch(setToken(result.access_token));
+
+            // ✅ если открыто внутри Telegram WebApp → отправляем токен боту
+            if (window.Telegram?.WebApp) {
+                window.Telegram.WebApp.sendData(
+                    JSON.stringify({
+                    type: "auth_success",
+                    token: result.access_token,
+                    })
+                );
+                }
+
+            // ✅ переходим на страницу задач
             navigate("/todo");
         } catch (err) {
             console.error("Login failed", err);
         }
-    };
+        };
 
 
     return (

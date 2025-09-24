@@ -2,12 +2,17 @@ export {};
 
 declare global {
   interface TelegramWebApp {
+    initData?: string;
+    initDataUnsafe?: unknown;
     sendData: (data: string) => void;
+    close: () => void;
   }
 
   interface Telegram {
     WebApp: TelegramWebApp;
   }
 
-  const Telegram: Telegram;
+  interface Window {
+    Telegram?: Telegram;
+  }
 }
