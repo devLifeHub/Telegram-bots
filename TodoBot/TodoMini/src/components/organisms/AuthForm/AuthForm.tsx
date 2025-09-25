@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "@/api/services/auth";
 import Button from "@/components/atoms/Button/Button";
 import FormTemplate from "@/components/templates/FormTamplate/FormTemplate";
@@ -11,7 +11,7 @@ import { setToken } from "@/store/slice/auth/authSlice";
 
 const AuthForm = () => {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [login] = useLoginMutation();
     const [isEmail, setIsEmail] = useState<string>("");
     const [isPassword, setIsPassword] = useState<string>("")
@@ -38,7 +38,7 @@ const AuthForm = () => {
             }
 
 
-            navigate("/todo");
+            // navigate("/todo");
         } catch (err) {
             console.error("Login failed", err);
         }
