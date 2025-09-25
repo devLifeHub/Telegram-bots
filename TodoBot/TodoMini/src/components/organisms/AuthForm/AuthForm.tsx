@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 // import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "@/api/services/auth";
 import Button from "@/components/atoms/Button/Button";
@@ -17,6 +17,15 @@ const AuthForm = () => {
     const [isPassword, setIsPassword] = useState<string>("")
 
     const [sendStatus, setSendStatus] = useState<string | null>(null);
+    const [webAppStartus, setWebAppStartus] = useState<string | null>(null);
+
+    useEffect(() => {
+    if (window.Telegram?.WebApp) {
+        setWebAppStartus("✅ WebApp API доступен");
+    } else {
+        setWebAppStartus("❌ WebApp API недоступен");
+    }
+    }, [window.Telegram]);
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,8 +57,13 @@ const AuthForm = () => {
     return (
             <FormTemplate variant="login" >
                 {sendStatus && (
-                    <div style={{ color: "green", marginTop: "10px" }}>
+                    <div style={{ color: "red", marginTop: "10px" }}>
                         {sendStatus}
+                    </div>
+                )}
+                {webAppStartus && (
+                    <div style={{ color: "red", marginTop: "10px" }}>
+                        {webAppStartus}
                     </div>
                 )}
                 <form className={s.form} onSubmit={handleSubmit}>
