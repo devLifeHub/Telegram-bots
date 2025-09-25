@@ -4,14 +4,5 @@
 }
 
 .content {
-    @include flex($jc: space-between);
-}
-
-.btn {
-    width: 40px;
-    height: 40px;
-    @include respond-to(ms) {
-        width: 32px;
-        height: 32px;
-    }
+    @include flex($jc: flex-start);
 }
