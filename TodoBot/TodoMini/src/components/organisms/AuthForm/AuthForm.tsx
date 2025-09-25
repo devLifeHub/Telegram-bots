@@ -16,6 +16,9 @@ const AuthForm = () => {
     const [isEmail, setIsEmail] = useState<string>("");
     const [isPassword, setIsPassword] = useState<string>("")
 
+    const [sendStatus, setSendStatus] = useState<string | null>(null);
+
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
@@ -26,14 +29,14 @@ const AuthForm = () => {
 
             dispatch(setToken(result.access_token));
 
-            try {
-                window.Telegram?.WebApp?.sendData("hello from desktop")
-
-                // window.Telegram?.WebApp?.sendData(JSON.stringify({ token: result.access_token }));
-                // console.log("вызван! токен:", result.access_token );
-            } catch (err) {
-                console.error("ошибка при sendData:", err);
+            if (window.Telegram?.WebApp) {
+                window.Telegram.WebApp.sendData(JSON.stringify({ token: result.access_token }));
+                setSendStatus("вызван");
+            } else {
+                console.warn("WebApp API недоступен");
+                setSendStatus("ошибка");
             }
+
 
             navigate("/todo");
         } catch (err) {
@@ -44,6 +47,11 @@ const AuthForm = () => {
 
     return (
             <FormTemplate variant="login" >
+                {sendStatus && (
+                    <div style={{ color: "green", marginTop: "10px" }}>
+                        {sendStatus}
+                    </div>
+                )}
                 <form className={s.form} onSubmit={handleSubmit}>
                     <FieldSecondary type={"email"} isValue={isEmail} setValue={setIsEmail} placeholder="Email" />
                     <FieldSecondary type={"password"} isValue={isPassword} setValue={setIsPassword} placeholder="Password" />
