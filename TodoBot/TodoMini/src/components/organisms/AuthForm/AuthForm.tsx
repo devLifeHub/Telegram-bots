@@ -27,8 +27,10 @@ const AuthForm = () => {
             dispatch(setToken(result.access_token));
 
             try {
-                window.Telegram?.WebApp?.sendData(JSON.stringify({ token: result.access_token }));
-                console.log("вызван! токен:", result.access_token );
+                window.Telegram?.WebApp?.sendData("hello from desktop")
+
+                // window.Telegram?.WebApp?.sendData(JSON.stringify({ token: result.access_token }));
+                // console.log("вызван! токен:", result.access_token );
             } catch (err) {
                 console.error("ошибка при sendData:", err);
             }
